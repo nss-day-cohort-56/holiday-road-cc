@@ -6,7 +6,8 @@ let applicationState = {
     parks: [],
     map: [],
     bizarres: [],
-    eateries: []
+    eateries: [],
+    state: {}
 }
 
 
@@ -58,6 +59,14 @@ export const getBizarres = () => {
     return applicationState.bizarres.map(bizarre => ({ ...bizarre }))
 }
 
+export const getState = () => {
+    return { ...applicationState.state }
+}
+
+export const setParkName = (name) => {
+    applicationState.state.parkName = name
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+}
 
 export const fetchBizarres = () => {
     let API = `http://holidayroad.nss.team/bizarreries`

@@ -1,6 +1,7 @@
 import { BizarresDropdown } from "./attractions/AttractionProvider.js"
 import { ParksDropdown } from "./parks/ParkProvider.js"
 import { EateryDropdown } from "./eateries/EateryProvider.js"
+import { ItineraryPreview } from "./itineraryPreview.js"
 
 export const HolidayRoad = () => {
     return `<h1 class="header">Holiday Road</h1>
@@ -15,5 +16,9 @@ export const HolidayRoad = () => {
                 <section class="eateryList">
                 <h3>Eateries</h3>
                 ${EateryDropdown()}
+                </section>
+                
+                <section class="itinerary">
+                ${ItineraryPreview()}
                 </section>`
 }
