@@ -1,4 +1,4 @@
-import { fetchParks } from "./dataAccess.js"
+import { fetchBizarres, fetchEateries, fetchParks } from "./dataAccess.js"
 import { HolidayRoad } from "./HolidayRoad.js"
 
 const mainContainer = document.querySelector(".container")
@@ -13,7 +13,10 @@ mainContainer.addEventListener(
 
 
 export const render = () => {
-    fetchParks().then(() => {
+    fetchParks()
+    .then(() => fetchBizarres())
+    .then(() => fetchEateries())
+        .then(() => {
                 mainContainer.innerHTML = HolidayRoad()
             }
     )
