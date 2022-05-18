@@ -14,3 +14,15 @@ export const BizarresDropdown = () => {
     html += `</select><br>`
     return html
 }
+
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "bizarres") {
+            const [, teamId] = event.target.value.split("--")
+            setSelectedBizarre(event.target.value)
+            render()
+
+        }
+    }
+)
