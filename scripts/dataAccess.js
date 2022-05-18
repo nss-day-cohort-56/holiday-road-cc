@@ -1,4 +1,4 @@
-import {keys} from "./Settings.js"
+import { keys } from "./Settings.js"
 const mainContainer = document.querySelector(".container")
 
 let applicationState = {
@@ -67,10 +67,11 @@ export const fetchBizarres = () => {
         .then(
             (bizarres) => { //array of objects is the argument here
                 // Store the external state in application state
-                applicationState.bizarres = bizarres //put in transient state
+                applicationState.bizarres = bizarres
             }
         )
 }
+
 
 export const fetchEateries = () => {
     let API = `http://holidayroad.nss.team/eateries`
@@ -81,9 +82,10 @@ export const fetchEateries = () => {
             (eatery) => { //array of objects is the argument here
                 // Store the external state in application state
                 applicationState.eateries = eatery //put in transient state
-            }
-        )
+            })
 }
 
-
+export const getEateries = () => {
+    return applicationState.eateries.map(eatery => ({ ...eatery }))
+}
 
