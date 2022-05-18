@@ -1,6 +1,6 @@
 import { ParksDropdown } from "./parks/ParkProvider.js"
 
-export const Itineraries = () => {
+export const HolidayRoad = () => {
     return `<h1 class="header">Holiday Road</h1>
                 <section class="parkList">
                 ${ParksDropdown()}
