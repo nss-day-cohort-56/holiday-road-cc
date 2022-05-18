@@ -4,7 +4,9 @@ const mainContainer = document.querySelector(".container")
 let applicationState = {
     weather: [],
     parks: [],
-    map: []
+    map: [],
+    bizarres: [],
+    eateries: []
 }
 
 
@@ -51,3 +53,34 @@ export const fetchMap = () => {
 export const getParks = () => {
     return applicationState.parks.map(park => ({ ...park }))
 }
+
+
+
+export const fetchBizarres = () => {
+    let API = `http://holidayroad.nss.team/bizarreries`
+
+    return fetch(`${API}/bizarres`) //default method is GET = i want data, give it to me please, give all of the requests
+        .then(response => response.json()) //returns array of objects in this scenario
+        .then(
+            (bizarre) => { //array of objects is the argument here
+                // Store the external state in application state
+                applicationState.bizarres.map = bizarre //put in transient state
+            }
+        )
+}
+
+export const fetchEateries = () => {
+    let API = `http://holidayroad.nss.team/eateries`
+
+    return fetch(`${API}/eateries`) //default method is GET = i want data, give it to me please, give all of the requests
+        .then(response => response.json()) //returns array of objects in this scenario
+        .then(
+            (eatery) => { //array of objects is the argument here
+                // Store the external state in application state
+                applicationState.eateries.map = eatery //put in transient state
+            }
+        )
+}
+
+
+
