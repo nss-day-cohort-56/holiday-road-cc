@@ -4,7 +4,7 @@ import { getParks } from "../dataAccess.js"
 export const ParksDropdown = () => {
     let parks = getParks()
      let html = `<select name="parks">
-    <option value="0">Choose one...</option>`
+    <option value="0">Choose a Park</option>`
     
     let parkList = parks.map(park => {
 

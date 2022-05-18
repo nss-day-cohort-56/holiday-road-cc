@@ -59,12 +59,12 @@ export const getParks = () => {
 export const fetchBizarres = () => {
     let API = `http://holidayroad.nss.team/bizarreries`
 
-    return fetch(`${API}/bizarres`) //default method is GET = i want data, give it to me please, give all of the requests
+    return fetch(`${API}`) //default method is GET = i want data, give it to me please, give all of the requests
         .then(response => response.json()) //returns array of objects in this scenario
         .then(
             (bizarre) => { //array of objects is the argument here
                 // Store the external state in application state
-                applicationState.bizarres.map = bizarre //put in transient state
+                applicationState.bizarres = bizarre //put in transient state
             }
         )
 }
@@ -72,15 +72,17 @@ export const fetchBizarres = () => {
 export const fetchEateries = () => {
     let API = `http://holidayroad.nss.team/eateries`
 
-    return fetch(`${API}/eateries`) //default method is GET = i want data, give it to me please, give all of the requests
+    return fetch(`${API}`) //default method is GET = i want data, give it to me please, give all of the requests
         .then(response => response.json()) //returns array of objects in this scenario
         .then(
             (eatery) => { //array of objects is the argument here
                 // Store the external state in application state
-                applicationState.eateries.map = eatery //put in transient state
+                applicationState.eateries = eatery //put in transient state
             }
         )
 }
 
-
+export const getEateries = () => {
+    return applicationState.eateries.map(eatery => ({ ...eatery }))
+}
 
