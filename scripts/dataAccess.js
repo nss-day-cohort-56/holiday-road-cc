@@ -1,4 +1,4 @@
-import {keys} from "./Settings.js"
+import { keys } from "./Settings.js"
 const mainContainer = document.querySelector(".container")
 
 let applicationState = {
@@ -54,6 +54,9 @@ export const getParks = () => {
     return applicationState.parks.map(park => ({ ...park }))
 }
 
+export const getBizarres = () => {
+    return applicationState.bizarres.map(bizarre => ({ ...bizarre }))
+}
 
 
 export const fetchBizarres = () => {
@@ -62,12 +65,12 @@ export const fetchBizarres = () => {
     return fetch(`${API}`) //default method is GET = i want data, give it to me please, give all of the requests
         .then(response => response.json()) //returns array of objects in this scenario
         .then(
-            (bizarre) => { //array of objects is the argument here
+            (bizarres) => { //array of objects is the argument here
                 // Store the external state in application state
-                applicationState.bizarres = bizarre //put in transient state
             }
         )
 }
+
 
 export const fetchEateries = () => {
     let API = `http://holidayroad.nss.team/eateries`
@@ -78,8 +81,7 @@ export const fetchEateries = () => {
             (eatery) => { //array of objects is the argument here
                 // Store the external state in application state
                 applicationState.eateries = eatery //put in transient state
-            }
-        )
+            })
 }
 
 export const getEateries = () => {
