@@ -67,6 +67,7 @@ export const fetchBizarres = () => {
         .then(
             (bizarres) => { //array of objects is the argument here
                 // Store the external state in application state
+                applicationState.bizarres = bizarres
             }
         )
 }
