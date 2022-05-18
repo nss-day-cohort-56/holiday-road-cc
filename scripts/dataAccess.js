@@ -6,7 +6,8 @@ let applicationState = {
     parks: [],
     map: [],
     bizarres: [],
-    eateries: []
+    eateries: [],
+    state: {}
 }
 
 
@@ -72,6 +73,10 @@ export const fetchBizarres = () => {
         )
 }
 
+export const setSelectedBizarre = (bizarreName) => {
+    applicationState.state.selectedBizarre = bizarreName
+}
+
 
 export const fetchEateries = () => {
     let API = `http://holidayroad.nss.team/eateries`
@@ -89,3 +94,6 @@ export const getEateries = () => {
     return applicationState.eateries.map(eatery => ({ ...eatery }))
 }
 
+export const setSelectedEatery = (eateryName) => {
+    applicationState.state.selectedEatery = eateryName
+}
