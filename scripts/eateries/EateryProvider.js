@@ -1,5 +1,4 @@
-import { getEateries } from "../dataAccess.js"
-import { render } from "../main.js"
+import { getEateries, setSelectedEatery } from "../dataAccess.js"
 
 export const EateryDropdown = () => {
     let eateries = getEateries()
@@ -8,7 +7,7 @@ export const EateryDropdown = () => {
 
     let eateryList = eateries.map(eatery => {
 
-        html += `<option id="id--${eatery.id}">${eatery.businessName}</option>`
+        html += `<option value="id--${eatery.businessName}">${eatery.businessName}</option>`
 
     })
     html += eateryList.join('')
@@ -21,10 +20,9 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "eateries") {
-            const [, teamId] = event.target.value.split("--")
-            setSelectedEatery(event.target.value)
-            render()
-
+            const [, eateryName] = event.target.value.split("--")
+            setSelectedEatery(eateryName)
+            console.log(eateryName)
         }
     }
 )

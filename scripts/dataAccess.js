@@ -81,8 +81,9 @@ export const fetchBizarres = () => {
         )
 }
 
-export const setSelectedBizarre = (bizarreName) => {
-    applicationState.state.selectedBizarre = bizarreName
+export const setSelectedBizarre = (name) => {
+    applicationState.state.selectedBizarre = name
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
 
@@ -102,6 +103,7 @@ export const getEateries = () => {
     return applicationState.eateries.map(eatery => ({ ...eatery }))
 }
 
-export const setSelectedEatery = (eateryName) => {
-    applicationState.state.selectedEatery = eateryName
+export const setSelectedEatery = (name) => {
+    applicationState.state.selectedEatery = name
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
