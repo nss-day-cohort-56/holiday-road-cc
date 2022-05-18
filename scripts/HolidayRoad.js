@@ -5,6 +5,8 @@ import { ItineraryPreview } from "./itineraryPreview.js"
 
 export const HolidayRoad = () => {
     return `<h1 class="header">Holiday Road</h1>
+                <div class="sidebyside">
+                <div class="leftside">
                 <section class="parkList">
                 <h3>Parks</h3>
                 ${ParksDropdown()}
@@ -17,8 +19,11 @@ export const HolidayRoad = () => {
                 <h3>Eateries</h3>
                 ${EateryDropdown()}
                 </section>
-                
+                </div>
+                <div class="rightside">
                 <section class="itinerary">
                 ${ItineraryPreview()}
-                </section>`
+                </section>
+                </div>
+                </div>`
 }
