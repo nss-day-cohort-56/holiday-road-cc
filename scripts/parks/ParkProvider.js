@@ -1,4 +1,4 @@
-import { getParks } from "../dataAccess.js"
+import { getParks, setParkName } from "../dataAccess.js"
 
 
 export const ParksDropdown = () => {
@@ -8,10 +8,20 @@ export const ParksDropdown = () => {
     
     let parkList = parks.map(park => {
 
-        html += `<option value="id--${park.id}">${park.fullName}</option>`
+        html += `<option value="id--${park.fullName}">${park.fullName}</option>`
         
     })
     html += parkList.join('')
     html += `</select><br>`
     return html
 }
+
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "parks") {
+            const [,parkName] = event.target.value.split("--")
+                setParkName(parkName)
+        }
+    }
+)
