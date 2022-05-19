@@ -25,6 +25,7 @@ export const fetchWeather = () => {
         )
 }
 
+
 export const fetchParks = () => {
     let API = `https://developer.nps.gov/api/v1/parks?api_key=${keys.npsKey}`
 
@@ -120,5 +121,15 @@ export const getEateries = () => {
 
 export const setSelectedEatery = (name) => {
     applicationState.state.selectedEatery = name
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+export const setParkLat = (parkLatitude) => {
+    applicationState.state.parkLatitude = parkLatitude
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+export const setParkLong = (parkLongitude) => {
+    applicationState.state.parkLongitude = parkLongitude
     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }

@@ -8,15 +8,18 @@ export const ItineraryPreview = () => {
     if(typeof state.parkName !== 'undefined') {
         html += `<section class="chosenPark">
         ${state.parkName}
+        <br><br>
+        <div class="weatherbox">
         <div class="forecast">
         5 Day Forecast:
         </div>`
         weather.map(weather => {
             if(weather.dt_txt.includes("12:00:00")){
-            html += `${weather.main.temp} ${capitalizeFirstLetter(weather.weather[0].description)}<br>`
+            html += `<div class="displayweather">${parseInt(weather.main.temp)} Degrees
+            <img src="http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png"></div><br>`
             }
         })
-        html += `</section>`
+        html += `</div></section>`
     }
     
     if(typeof state.selectedBizarre !== 'undefined') {

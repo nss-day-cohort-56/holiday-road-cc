@@ -8,3 +8,22 @@
     display: flex;
     justify-content: center;
 }
+
+.displayweather {
+    display: flex;
+    flex-direction: row;
+}
+
+img {
+    width: 2rem;
+}
+
+.forecast {
+    display: flex;
+    justify-content: center;
+}
+
+.weatherbox {
+    background-color: lightblue;
+    padding: 2rem;
+}

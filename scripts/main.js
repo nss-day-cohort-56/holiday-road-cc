@@ -15,20 +15,20 @@ mainContainer.addEventListener(
 export const render = () => {
     let state = getState()
     fetchParks()
-    .then(() => fetchBizarres())
-    .then(() => fetchEateries())
-    .then(() => {
-        mainContainer.innerHTML = HolidayRoad()
-    }
-    )
-
-    if (typeof state.parkLatitude !== 'undefined' && typeof state.parkLongitude !== 'undefined') {
-    fetchWeather()
+        .then(() => fetchBizarres())
+        .then(() => fetchEateries())
         .then(() => {
+            mainContainer.innerHTML = HolidayRoad()
+        }
+        )
+
+    if (typeof state.parkLatitude !== "undefined" && typeof state.parkLongitude !== "undefined") {
+        fetchWeather()
+            .then(() => {
                 mainContainer.innerHTML = HolidayRoad()
             }
-    )
-        }
+            )
+    }
 
 }
 
