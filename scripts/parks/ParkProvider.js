@@ -19,7 +19,6 @@ export const ParksDropdown = () => {
 document.addEventListener(
     "change",
     (event) => {
-        let parks = getParks()
         if (event.target.name === "parks") {
             let parks = getParks()
 
