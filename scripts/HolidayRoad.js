@@ -26,7 +26,6 @@ export const HolidayRoad = () => {
                 <section class="itinerary">
                 ${ItineraryPreview()}
                 </section>
-                
                 </div>
                 </div>`
 }
