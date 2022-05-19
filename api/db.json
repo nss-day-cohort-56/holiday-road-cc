@@ -41,6 +41,12 @@
       "bizarre": "Owney the Stuffed Dog Postal Mascot",
       "eatery": "Occidental Grill & Seafood",
       "id": 8
+    },
+    {
+      "park": "Adams National Historical Park",
+      "bizarre": "Largest Fork in the US",
+      "eatery": "Club Paris",
+      "id": 9
     }
   ]
 }

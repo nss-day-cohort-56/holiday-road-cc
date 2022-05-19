@@ -17,7 +17,7 @@ export const ItineraryPreview = () => {
         5 Day Forecast:
         </div><br><br>`
         weather.map(weather => {
-            if (weather.dt_txt.includes("12:00:00")) {
+            if (weather.dt_txt.includes("00:00:00")) {
                 html += `<div class="displayweather">`
                 let date = weather.dt_txt
                 let dateArray = date.split(" ");
