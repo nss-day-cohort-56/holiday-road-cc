@@ -17,7 +17,7 @@ export const ItineraryPreview = () => {
         </div>`
         weather.map(weather => {
             if (weather.dt_txt.includes("12:00:00")) {
-                html += `<div class="displayweather">${parseInt(weather.main.temp)} Degrees
+                html += `<div class="displayweather">${parseInt(weather.main.temp)}°
             <img src="http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png"></div><br>`
             }
         })
@@ -30,8 +30,8 @@ export const ItineraryPreview = () => {
             return bizarre.name === state.selectedBizarre
         })
         html += `<section class="chosenBizarre">
-        ${state.selectedBizarre} <button class="collapsible" id="bizarredetails">Details</button>
-        <div class="content"><p>${foundBizarre.name}<br>Location: ${foundBizarre.city}, ${foundBizarre.state}<br>Description: ${foundBizarre.description}</p></div>
+        <button class="collapsible" id="bizarredetails">${foundBizarre.name}</button>
+        <div class="content"><p>Location: ${foundBizarre.city}, ${foundBizarre.state}<br>Description: ${foundBizarre.description}</p></div>
         </section>`
 
 
@@ -43,11 +43,10 @@ export const ItineraryPreview = () => {
             return eatery.businessName === state.selectedEatery
         })
         html += `<section class="chosenEatery">
-        ${state.selectedEatery}
-        <button class="collapsible" id="eateryDetails">Details</button>
+        <button class="collapsible" id="eateryDetails">${state.selectedEatery}</button>
         <div class="content"><p>
-        ${foundEatery.city}, ${foundEatery.state}<br>
-        ${foundEatery.description}
+        Location: ${foundEatery.city}, ${foundEatery.state}<br>
+        Description: ${foundEatery.description}
         </p></div></section>`
     }    
     
