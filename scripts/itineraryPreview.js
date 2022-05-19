@@ -50,7 +50,9 @@ export const ItineraryPreview = () => {
         </p></div></section>`
     }    
     
-    
+    if (typeof state.parkName !== 'undefined' && typeof state.selectedBizarre !== 'undefined' && typeof state.selectedEatery !== 'undefined') {
+        html += `<button class="button" id="saveItinerary">Save Itinerary</button>`
+    }
     return html
 }    
 
