@@ -51,7 +51,7 @@ export const eateryDetailsHtml = () => {
     let state = getState()
     let eateries = getEateries()
 
-    if (state.eateryButton === true && (state.eateryButtonCount % 2 !== 0)) {
+    if (state.eateryButton === true) {
     const foundEatery = eateries.find(eatery => {
         return eatery.id === state.eateryId
     })
@@ -60,9 +60,6 @@ export const eateryDetailsHtml = () => {
         ${foundEatery.description}
         </section>`
 }
-    else if (state.eateryButton === true && (state.eateryButtonCount % 2 === 0)) {
-        html = ''
-    }
 
     return html
 }

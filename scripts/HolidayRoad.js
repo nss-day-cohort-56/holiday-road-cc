@@ -3,7 +3,7 @@ import { ParksDropdown } from "./parks/ParkProvider.js"
 import { EateryDropdown } from "./eateries/EateryProvider.js"
 import { eateryDetailsHtml, ItineraryPreview } from "./itineraryPreview.js"
 import { render } from "./main.js"
-import { setEateryButton, setEateryButtonCounter } from "./dataAccess.js"
+import { setEateryButton } from "./dataAccess.js"
 
 export const HolidayRoad = () => {
     return `<h1 class="header">Holiday Road</h1>

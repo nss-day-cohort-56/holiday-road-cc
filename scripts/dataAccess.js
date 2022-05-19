@@ -133,8 +133,3 @@ export const setEateryButton = (boolean) => {
     applicationState.state.eateryButton = boolean
     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
-
-export const setEateryButtonCounter = (number) => {
-    applicationState.state.eateryButtonCount = number
-    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-}
