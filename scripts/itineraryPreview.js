@@ -45,8 +45,8 @@ export const ItineraryPreview = () => {
         html += `<section class="chosenEatery">
         <button class="collapsible" id="eateryDetails">${state.selectedEatery}</button>
         <div class="content"><p>
-        ${foundEatery.city}, ${foundEatery.state}<br>
-        ${foundEatery.description}
+        Location: ${foundEatery.city}, ${foundEatery.state}<br>
+        Description: ${foundEatery.description}
         </p></div></section>`
     }    
     
