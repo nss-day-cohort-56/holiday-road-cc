@@ -72,6 +72,10 @@ export const getWeather = () => {
     return applicationState.weather.map(weather => ({ ...weather }))
 }
 
+export const getItineraries = () => {
+    return applicationState.itineraries.map(itinerary => ({ ...itinerary }))
+}
+
 export const setParkName = (name) => {
     applicationState.state.parkName = name
     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
@@ -145,8 +149,7 @@ export const saveItinerary = (itinerary) => {
         },
         body: JSON.stringify(itinerary)
     }
-    return fetch(`${API}/itineraries`,
-        fetchOptions) //here's the url i wanna send a request to
+    return fetch(`${API}/itineraries`, fetchOptions) //here's the url i wanna send a request to
         .then(response => response.json()) //when response happens, returns string of json data, string => data structure(response.json)
         .then(() => { //then, do this (alert! things have changed)
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
@@ -156,8 +159,19 @@ export const saveItinerary = (itinerary) => {
                 map: [],
                 bizarres: [],
                 eateries: [],
-                itineraries: [],
                 state: {}
             }
         })
 }
+
+export const fetchItineraries = () => {
+    return fetch(`${API}/itineraries`) //default method is GET = i want data, give it to me please, give all of the requests
+        .then(response => response.json()) //returns array of objects in this scenario
+        .then(
+            (itineraries) => { //array of objects is the argument here
+                // Store the external state in application state
+                applicationState.itineraries = itineraries //put in transient state
+            }
+        )
+}
+
