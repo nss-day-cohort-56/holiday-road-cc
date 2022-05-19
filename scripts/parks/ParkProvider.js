@@ -1,4 +1,4 @@
-import { getParks, setParkName } from "../dataAccess.js"
+import { getParks, setParkName, setParkLat, setParkLong } from "../dataAccess.js"
 
 
 export const ParksDropdown = () => {
@@ -19,9 +19,15 @@ export const ParksDropdown = () => {
 document.addEventListener(
     "change",
     (event) => {
+        let parks = getParks()
         if (event.target.name === "parks") {
             const [,parkName] = event.target.value.split("--")
                 setParkName(parkName)
+                const foundPark = parks.find((park) => {
+                    return park.fullName === parkName
+                })
+                setParkLat(foundPark.latitude)
+                setParkLong(foundPark.longitude)
         }
     }
 )
