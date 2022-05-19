@@ -26,7 +26,7 @@ img {
 
 .weatherbox {
     background-color: lightblue;
-    padding: 2rem;
+    padding: 2.5rem;
     max-width: 10rem;
 }
 
@@ -40,6 +40,8 @@ img {
     text-align: left;
     outline: none;
     font-size: 15px;
+    max-width: 15rem;
+    text-align: center;
   }
   
   .active, .collapsible:hover {
@@ -64,6 +66,7 @@ img {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     background-color: #f1f1f1;
+    max-width: 12.85rem;
   }
 
 
@@ -79,4 +82,9 @@ img {
 
 .eateryAddress {
     font-weight: bolder;
+}
+
+.chosenBizarre, .chosenEatery {
+    display: flex;
+    flex-direction: column;
 }
