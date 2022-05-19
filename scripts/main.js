@@ -21,12 +21,15 @@ export const render = () => {
             mainContainer.innerHTML = HolidayRoad()
         }
         )
+
     if (typeof state.parkLatitude !== "undefined" && typeof state.parkLongitude !== "undefined") {
         fetchWeather()
             .then(() => {
                 mainContainer.innerHTML = HolidayRoad()
-            })
+            }
+            )
     }
+
 }
 
 render()

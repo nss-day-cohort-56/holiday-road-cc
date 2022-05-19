@@ -26,7 +26,7 @@ export const HolidayRoad = () => {
                 ${ItineraryPreview()}
                 </section>
                 <section class="weather">
-                ${WeatherDisplay()}
+     
                 </section>
                 </div>
                 </div>`

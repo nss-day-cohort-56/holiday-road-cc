@@ -10,27 +10,21 @@ let applicationState = {
     state: {}
 }
 
-
 export const fetchWeather = () => {
-    let state = applicationState.state
+    let state = getState()
+
     let API = `https://api.openweathermap.org/data/2.5/forecast?lat=${state.parkLatitude}&lon=${state.parkLongitude}&appid=${keys.weatherKey}&units=imperial`
-
-    
-
 
     return fetch(`${API}`) //default method is GET = i want data, give it to me please, give all of the requests
         .then(response => response.json()) //returns array of objects in this scenario
         .then(
             (weather) => { //array of objects is the argument here
                 // Store the external state in application state
-                applicationState.weather = weather.list[0].weather //put in transient state
+                applicationState.weather = weather.list //put in transient state
             }
         )
 }
 
-export const getWeather = () => {
-    return applicationState.weather.map(weather => ({ ...weather }))
-}
 
 export const fetchParks = () => {
     let API = `https://developer.nps.gov/api/v1/parks?api_key=${keys.npsKey}`
@@ -71,8 +65,22 @@ export const getState = () => {
     return { ...applicationState.state }
 }
 
+export const getWeather = () => {
+    return applicationState.weather.map(weather => ({ ...weather }))
+}
+
 export const setParkName = (name) => {
     applicationState.state.parkName = name
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+export const setParkLatitude = (number) => {
+    applicationState.state.parkLatitude = number
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+export const setParkLongitude = (number) => {
+    applicationState.state.parkLongitude = number
     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
