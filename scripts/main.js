@@ -1,4 +1,4 @@
-import { fetchBizarres, fetchEateries, fetchParks } from "./dataAccess.js"
+import { fetchBizarres, fetchEateries, fetchParks, fetchWeather, getState } from "./dataAccess.js"
 import { HolidayRoad } from "./HolidayRoad.js"
 
 const mainContainer = document.querySelector(".container")
@@ -13,13 +13,23 @@ mainContainer.addEventListener(
 
 
 export const render = () => {
+    let state = getState()
     fetchParks()
     .then(() => fetchBizarres())
     .then(() => fetchEateries())
+    .then(() => {
+        mainContainer.innerHTML = HolidayRoad()
+    }
+    )
+
+    if (typeof state.parkLatitude !== 'undefined' && typeof state.parkLongitude !== 'undefined') {
+    fetchWeather()
         .then(() => {
                 mainContainer.innerHTML = HolidayRoad()
             }
     )
+        }
+
 }
 
 render()
