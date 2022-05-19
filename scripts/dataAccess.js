@@ -7,8 +7,11 @@ let applicationState = {
     map: [],
     bizarres: [],
     eateries: [],
+    itineraries: [],
     state: {}
 }
+
+const API = "http://localhost:8088"
 
 export const fetchWeather = () => {
     let state = getState()
@@ -132,4 +135,20 @@ export const setEateryId = (id) => {
 export const setEateryButton = (boolean) => {
     applicationState.state.eateryButton = boolean
     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+export const saveItinerary = (itinerary) => {
+    const fetchOptions = {
+        method: "POST", //creation request, "please create"
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(itinerary)
+    }
+    return fetch(`${API}/itineraries`,
+        fetchOptions) //here's the url i wanna send a request to
+        .then(response => response.json()) //when response happens, returns string of json data, string => data structure(response.json)
+        .then(() => { //then, do this (alert! things have changed)
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
 }

@@ -1,4 +1,4 @@
-import { getEateries, getState, getWeather, getBizarres } from "./dataAccess.js"
+import { getEateries, getState, getWeather, getBizarres, saveItinerary } from "./dataAccess.js"
 
 export const ItineraryPreview = () => {
     let state = getState()
@@ -48,13 +48,13 @@ export const ItineraryPreview = () => {
         Location: ${foundEatery.city}, ${foundEatery.state}<br>
         Description: ${foundEatery.description}
         </p></div></section>`
-    }    
-    
+    }
+
     if (typeof state.parkName !== 'undefined' && typeof state.selectedBizarre !== 'undefined' && typeof state.selectedEatery !== 'undefined') {
         html += `<button class="button" id="saveItinerary">Save Itinerary</button>`
     }
     return html
-}    
+}
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -65,7 +65,7 @@ document.addEventListener( //have to put listener on the DOM!!
     "click",
     (clickEvent) => {
         const itemClicked = clickEvent.target
-        if (itemClicked.id === "bizarredetails" || itemClicked.id ==="eateryDetails") {
+        if (itemClicked.id === "bizarredetails" || itemClicked.id === "eateryDetails") {
             itemClicked.classList.toggle("active");
             var content = itemClicked.nextElementSibling;
             if (content.style.maxHeight) {
@@ -76,7 +76,7 @@ document.addEventListener( //have to put listener on the DOM!!
         }
     }
 )
- 
+
 
 export const eateryDetailsHtml = () => {
     let html = ""
@@ -84,16 +84,33 @@ export const eateryDetailsHtml = () => {
     let eateries = getEateries()
 
     if (state.eateryButton === true) {
-    const foundEatery = eateries.find(eatery => {
-        return eatery.id === state.eateryId
-    })
+        const foundEatery = eateries.find(eatery => {
+            return eatery.id === state.eateryId
+        })
         html += `<div class="content"><p>
         ${foundEatery.city}, ${foundEatery.state}<br>
         ${foundEatery.description}
         </p></div>`
-}
+    }
 
     return html
 }
 
-//test comment
+const mainContainer = document.querySelector(".container")
+
+mainContainer.addEventListener("click", clickEvent => {
+    let state = getState()
+    let selectedBizarre = state.selectedBizarre
+    let selectedEatery = state.selectedEatery
+    let selectedPark = state.parkName
+    if (clickEvent.target.id === "saveItinerary") {
+
+        const dataToSendToAPI = {
+            park: selectedPark,
+            bizarre: selectedBizarre,
+            eatery: selectedEatery
+        }
+
+        saveItinerary(dataToSendToAPI)
+    }
+})
