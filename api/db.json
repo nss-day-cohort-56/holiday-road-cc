@@ -1,12 +1,6 @@
 {
   "itineraries": [
     {
-      "park": "Agate Fossil Beds National Monument",
-      "bizarre": "Avery’s Beverages",
-      "eatery": "Occidental Grill & Seafood",
-      "id": 1
-    },
-    {
       "park": "Alaska Public Lands",
       "bizarre": "Elvis Memorial Chapel",
       "eatery": "Marge's Pancake House",
@@ -29,6 +23,18 @@
       "bizarre": "Giant Tattoo Needle",
       "eatery": "Club Paris",
       "id": 5
+    },
+    {
+      "park": "Acadia National Park",
+      "bizarre": "Largest Fork in the US",
+      "eatery": "Buckhorn Exchange",
+      "id": 6
+    },
+    {
+      "park": "Acadia National Park",
+      "bizarre": "Cabazon Dinosaurs",
+      "eatery": "Deer Park Tavern",
+      "id": 7
     }
   ]
 }

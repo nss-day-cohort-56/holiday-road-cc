@@ -1,4 +1,4 @@
-import { fetchBizarres, fetchEateries, fetchParks, fetchWeather, getState } from "./dataAccess.js"
+import { fetchBizarres, fetchEateries, fetchItineraries, fetchParks, fetchWeather, getState } from "./dataAccess.js"
 import { HolidayRoad } from "./HolidayRoad.js"
 
 const mainContainer = document.querySelector(".container")
@@ -17,6 +17,7 @@ export const render = () => {
     fetchParks()
         .then(() => fetchBizarres())
         .then(() => fetchEateries())
+        .then(() => fetchItineraries())
         .then(() => {
             mainContainer.innerHTML = HolidayRoad()
         }
