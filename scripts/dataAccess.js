@@ -124,12 +124,12 @@ export const setSelectedEatery = (name) => {
     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
-export const setParkLat = (parkLatitude) => {
-    applicationState.state.parkLatitude = parkLatitude
+export const setEateryId = (id) => {
+    applicationState.state.eateryId = id
     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
-export const setParkLong = (parkLongitude) => {
-    applicationState.state.parkLongitude = parkLongitude
+export const setEateryButton = (boolean) => {
+    applicationState.state.eateryButton = boolean
     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }

@@ -1,8 +1,10 @@
-import { getState, getWeather } from "./dataAccess.js"
+import { getEateries, getState, getWeather } from "./dataAccess.js"
 
 export const ItineraryPreview = () => {
     let state = getState()
     let weather = getWeather()
+    let eateries = getEateries()
+
     let html = `<h1>Itinerary Preview</h1>`
     
     if(typeof state.parkName !== 'undefined') {
@@ -31,13 +33,33 @@ export const ItineraryPreview = () => {
     if(typeof state.selectedEatery !== 'undefined') {
         html += `<section class="chosenEatery">
         ${state.selectedEatery}
-        </section>`
-    }
+        <button class="button" id="eateryDetails">Details</button>`
+        
+        html += `</section>`
+    }    
     
-
+    
     return html
-}
+}    
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+}    
+
+export const eateryDetailsHtml = () => {
+    let html = ""
+    let state = getState()
+    let eateries = getEateries()
+
+    if (state.eateryButton === true) {
+    const foundEatery = eateries.find(eatery => {
+        return eatery.id === state.eateryId
+    })
+        html += `<section class="eateryDescription">
+        <div class="eateryAddress">${foundEatery.city}, ${foundEatery.state}</div>
+        ${foundEatery.description}
+        </section>`
+}
+
+    return html
+}
