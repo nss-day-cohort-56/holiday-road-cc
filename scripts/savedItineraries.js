@@ -8,10 +8,10 @@ export const savedItineraries = () => {
     let number = 1
     itineraries.map(itinerary => {
         html += `<section class="savedItineraries">
-        Itinerary #${number}:
-        Park: ${itinerary.park}
-        Bizarre: ${itinerary.bizarre}
-        Eatery: ${itinerary.eatery}
+        Itinerary #${number}: <br>
+        Park: ${itinerary.park} <br>
+        Bizarre: ${itinerary.bizarre} <br>
+        Eatery: ${itinerary.eatery} <br><br>
         </section>`
         number++
     })
