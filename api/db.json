@@ -1,3 +1,10 @@
 {
-	"itineraries": []
+  "itineraries": [
+    {
+      "park": "Agate Fossil Beds National Monument",
+      "bizarre": "Avery’s Beverages",
+      "eatery": "Occidental Grill & Seafood",
+      "id": 1
+    }
+  ]
 }

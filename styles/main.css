@@ -1,3 +1,7 @@
+/* body {
+    font-size: 10px;
+} */
+
 .sidebyside {
     display: flex;
     flex-direction: row;
@@ -73,7 +77,7 @@ img {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     background-color: #f1f1f1;
-    max-width: 12.85rem;
+    max-width: 12rem;
   }
 
 
