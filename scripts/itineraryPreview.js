@@ -17,7 +17,7 @@ export const ItineraryPreview = () => {
         </div>`
         weather.map(weather => {
             if (weather.dt_txt.includes("12:00:00")) {
-                html += `<div class="displayweather">${parseInt(weather.main.temp)} Degrees
+                html += `<div class="displayweather">${parseInt(weather.main.temp)}°
             <img src="http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png"></div><br>`
             }
         })
