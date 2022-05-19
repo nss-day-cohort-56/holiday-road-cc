@@ -150,5 +150,14 @@ export const saveItinerary = (itinerary) => {
         .then(response => response.json()) //when response happens, returns string of json data, string => data structure(response.json)
         .then(() => { //then, do this (alert! things have changed)
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            applicationState = {
+                weather: [],
+                parks: [],
+                map: [],
+                bizarres: [],
+                eateries: [],
+                itineraries: [],
+                state: {}
+            }
         })
 }

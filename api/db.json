@@ -5,6 +5,30 @@
       "bizarre": "Avery’s Beverages",
       "eatery": "Occidental Grill & Seafood",
       "id": 1
+    },
+    {
+      "park": "Alaska Public Lands",
+      "bizarre": "Elvis Memorial Chapel",
+      "eatery": "Marge's Pancake House",
+      "id": 2
+    },
+    {
+      "park": "Allegheny Portage Railroad National Historic Site",
+      "bizarre": "First Kiss Spot of the Obamas",
+      "eatery": "H&H Soul Food",
+      "id": 3
+    },
+    {
+      "park": "Andersonville National Historic Site",
+      "bizarre": "Pope John Paul II Outside a Restaurant",
+      "eatery": "Canlis",
+      "id": 4
+    },
+    {
+      "park": "Allegheny Portage Railroad National Historic Site",
+      "bizarre": "Giant Tattoo Needle",
+      "eatery": "Club Paris",
+      "id": 5
     }
   ]
 }
