@@ -26,21 +26,21 @@ export const HolidayRoad = () => {
                 <section class="itinerary">
                 ${ItineraryPreview()}
                 </section>
-                ${eateryDetailsHtml()}
+                
                 </div>
                 </div>`
 }
 
 const mainContainer = document.querySelector(".container")
 
-let counter = 0
+// let counter = 0
 
-mainContainer.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "eateryDetails") {
-        render()
-        eateryDetailsHtml()
-        setEateryButton(true)
-        counter = counter + 1
-        setEateryButtonCounter(counter)
-    }
-})
+// mainContainer.addEventListener("click", clickEvent => {
+//     if (clickEvent.target.id === "eateryDetails") {
+//         render()
+//         eateryDetailsHtml()
+//         setEateryButton(true)
+//         counter = counter + 1
+//         setEateryButtonCounter(counter)
+//     }
+// })
