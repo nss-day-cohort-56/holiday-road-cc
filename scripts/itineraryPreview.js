@@ -1,8 +1,10 @@
-import { getBizarres, getState, getWeather } from "./dataAccess.js"
+import { getEateries, getState, getWeather, getBizarres } from "./dataAccess.js"
 
 export const ItineraryPreview = () => {
     let state = getState()
     let weather = getWeather()
+    let eateries = getEateries()
+
     let html = `<h1>Itinerary Preview</h1>`
 
     if (typeof state.parkName !== 'undefined') {
@@ -36,14 +38,22 @@ export const ItineraryPreview = () => {
     }
 
     if (typeof state.selectedEatery !== 'undefined') {
+        let eateries = getEateries()
+        const foundEatery = eateries.find((eatery) => {
+            return eatery.businessName === state.selectedEatery
+        })
         html += `<section class="chosenEatery">
         ${state.selectedEatery}
-        </section>`
-    }
-
-
+        <button class="collapsible" id="eateryDetails">Details</button>
+        <div class="content"><p>
+        ${foundEatery.city}, ${foundEatery.state}<br>
+        ${foundEatery.description}
+        </p></div></section>`
+    }    
+    
+    
     return html
-}
+}    
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -54,7 +64,7 @@ document.addEventListener( //have to put listener on the DOM!!
     "click",
     (clickEvent) => {
         const itemClicked = clickEvent.target
-        if (itemClicked.id === "bizarredetails") {
+        if (itemClicked.id === "bizarredetails" || itemClicked.id ==="eateryDetails") {
             itemClicked.classList.toggle("active");
             var content = itemClicked.nextElementSibling;
             if (content.style.maxHeight) {
@@ -65,3 +75,22 @@ document.addEventListener( //have to put listener on the DOM!!
         }
     }
 )
+ 
+
+export const eateryDetailsHtml = () => {
+    let html = ""
+    let state = getState()
+    let eateries = getEateries()
+
+    if (state.eateryButton === true) {
+    const foundEatery = eateries.find(eatery => {
+        return eatery.id === state.eateryId
+    })
+        html += `<div class="content"><p>
+        ${foundEatery.city}, ${foundEatery.state}<br>
+        ${foundEatery.description}
+        </p></div>`
+}
+
+    return html
+}

@@ -12,6 +12,7 @@
 .displayweather {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 img {
@@ -26,6 +27,7 @@ img {
 .weatherbox {
     background-color: lightblue;
     padding: 2rem;
+    max-width: 10rem;
 }
 
 .collapsible {
@@ -64,3 +66,17 @@ img {
     background-color: #f1f1f1;
   }
 
+
+
+.eateryDescription {
+    max-width: 17rem;
+}
+
+.rightside {
+    display: flex;
+    flex-direction: column;
+}
+
+.eateryAddress {
+    font-weight: bolder;
+}

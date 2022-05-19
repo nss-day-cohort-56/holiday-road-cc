@@ -1,7 +1,9 @@
 import { BizarresDropdown } from "./attractions/AttractionProvider.js"
 import { ParksDropdown } from "./parks/ParkProvider.js"
 import { EateryDropdown } from "./eateries/EateryProvider.js"
-import { ItineraryPreview } from "./itineraryPreview.js"
+import { eateryDetailsHtml, ItineraryPreview } from "./itineraryPreview.js"
+import { render } from "./main.js"
+import { setEateryButton } from "./dataAccess.js"
 
 export const HolidayRoad = () => {
     return `<h1 class="header">Holiday Road</h1>
@@ -24,9 +26,21 @@ export const HolidayRoad = () => {
                 <section class="itinerary">
                 ${ItineraryPreview()}
                 </section>
-                <section class="weather">
-     
-                </section>
+                
                 </div>
                 </div>`
 }
+
+const mainContainer = document.querySelector(".container")
+
+// let counter = 0
+
+// mainContainer.addEventListener("click", clickEvent => {
+//     if (clickEvent.target.id === "eateryDetails") {
+//         render()
+//         eateryDetailsHtml()
+//         setEateryButton(true)
+//         counter = counter + 1
+//         setEateryButtonCounter(counter)
+//     }
+// })
