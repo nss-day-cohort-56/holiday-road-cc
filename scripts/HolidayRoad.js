@@ -4,6 +4,7 @@ import { EateryDropdown } from "./eateries/EateryProvider.js"
 import { eateryDetailsHtml, ItineraryPreview } from "./itineraryPreview.js"
 import { render } from "./main.js"
 import { setEateryButton } from "./dataAccess.js"
+import { savedItineraries } from "./savedItineraries.js"
 
 export const HolidayRoad = () => {
     return `<h1 class="header">Holiday Road</h1>
@@ -26,6 +27,7 @@ export const HolidayRoad = () => {
                 <section class="itinerary">
                 ${ItineraryPreview()}
                 </section>
+                ${savedItineraries()}
                 </div>
                 </div>`
 }
