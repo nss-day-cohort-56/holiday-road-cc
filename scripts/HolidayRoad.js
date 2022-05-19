@@ -2,7 +2,6 @@ import { BizarresDropdown } from "./attractions/AttractionProvider.js"
 import { ParksDropdown } from "./parks/ParkProvider.js"
 import { EateryDropdown } from "./eateries/EateryProvider.js"
 import { ItineraryPreview } from "./itineraryPreview.js"
-import { WeatherDisplay } from "./weather/WeatherProvider.js"
 
 export const HolidayRoad = () => {
     return `<h1 class="header">Holiday Road</h1>
