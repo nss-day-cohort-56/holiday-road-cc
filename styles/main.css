@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
 img {
@@ -44,10 +45,10 @@ img {
     border: none;
     text-align: left;
     outline: none;
-    font-size: 15px;
-    max-width: 15rem;
-    text-align: center;
-    margin-bottom: 1rem;
+    font-size: contain;
+    min-width: 18rem;
+    max-height: 2rem;
+    margin-bottom: 1.25rem;
   }
   
   .active {
@@ -89,6 +90,7 @@ img {
 .rightside {
     display: flex;
     flex-direction: column;
+    min-width: 20rem;
 }
 
 .eateryAddress {
@@ -99,3 +101,5 @@ img {
     display: flex;
     flex-direction: column;
 }
+
+

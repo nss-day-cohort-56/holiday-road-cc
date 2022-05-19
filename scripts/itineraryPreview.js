@@ -1,5 +1,6 @@
 import { getEateries, getState, getWeather, getBizarres, saveItinerary } from "./dataAccess.js"
 
+
 export const ItineraryPreview = () => {
     let state = getState()
     let weather = getWeather()
@@ -14,11 +15,16 @@ export const ItineraryPreview = () => {
         <div class="weatherbox">
         <div class="forecast">
         5 Day Forecast:
-        </div>`
+        </div><br><br>`
         weather.map(weather => {
             if (weather.dt_txt.includes("12:00:00")) {
-                html += `<div class="displayweather">${parseInt(weather.main.temp)}°
-            <img src="http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png"></div><br>`
+                html += `<div class="displayweather">`
+                let date = weather.dt_txt
+                let dateArray = date.split(" ");
+                let dateWYear = dateArray[0]
+                let dateWOYear = dateWYear.substr(6)
+                html+=`${dateWOYear}   ${parseInt(weather.main.temp)}°
+            <img class="image" src="http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png"></div><br>`
             }
         })
         html += `</div></section>`

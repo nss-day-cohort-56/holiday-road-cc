@@ -35,6 +35,12 @@
       "bizarre": "Cabazon Dinosaurs",
       "eatery": "Deer Park Tavern",
       "id": 7
+    },
+    {
+      "park": "Abraham Lincoln Birthplace National Historical Park",
+      "bizarre": "Owney the Stuffed Dog Postal Mascot",
+      "eatery": "Occidental Grill & Seafood",
+      "id": 8
     }
   ]
 }
