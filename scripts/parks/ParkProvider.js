@@ -1,5 +1,6 @@
 import { getParks, setParkLatitude, setParkLongitude, setParkName } from "../dataAccess.js"
 
+const mainContainer = document.querySelector(".container")
 
 export const ParksDropdown = () => {
     let parks = getParks()
@@ -29,6 +30,8 @@ document.addEventListener(
                 setParkName(foundPark.fullName)
                 setParkLatitude(parseInt(foundPark.latitude))
                 setParkLongitude(parseInt(foundPark.longitude))
+
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         }
     }
 )

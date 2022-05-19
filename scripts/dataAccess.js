@@ -78,17 +78,17 @@ export const getItineraries = () => {
 
 export const setParkName = (name) => {
     applicationState.state.parkName = name
-    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    
 }
 
 export const setParkLatitude = (number) => {
     applicationState.state.parkLatitude = number
-    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    
 }
 
 export const setParkLongitude = (number) => {
     applicationState.state.parkLongitude = number
-    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    
 }
 
 export const fetchBizarres = () => {
@@ -124,21 +124,22 @@ export const fetchEateries = () => {
 
 export const getEateries = () => {
     return applicationState.eateries.map(eatery => ({ ...eatery }))
+
 }
 
 export const setSelectedEatery = (name) => {
     applicationState.state.selectedEatery = name
-    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    const mainContainer = document.querySelector(".container")
 }
 
 export const setEateryId = (id) => {
     applicationState.state.eateryId = id
-    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    const mainContainer = document.querySelector(".container")
 }
 
 export const setEateryButton = (boolean) => {
     applicationState.state.eateryButton = boolean
-    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    const mainContainer = document.querySelector(".container")
 }
 
 export const saveItinerary = (itinerary) => {
