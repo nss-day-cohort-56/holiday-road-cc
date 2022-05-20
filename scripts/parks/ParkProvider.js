@@ -1,4 +1,4 @@
-import { getParks, setParkLatitude, setParkLongitude, setParkName } from "../dataAccess.js"
+import { getParks, setParkId, setParkLatitude, setParkLongitude, setParkName } from "../dataAccess.js"
 
 const mainContainer = document.querySelector(".container")
 
@@ -30,6 +30,7 @@ document.addEventListener(
                 setParkName(foundPark.fullName)
                 setParkLatitude(parseInt(foundPark.latitude))
                 setParkLongitude(parseInt(foundPark.longitude))
+                setParkId(parseInt(parkId))
 
                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         }

@@ -2,8 +2,6 @@ import { BizarresDropdown } from "./attractions/AttractionProvider.js"
 import { ParksDropdown } from "./parks/ParkProvider.js"
 import { EateryDropdown } from "./eateries/EateryProvider.js"
 import { eateryDetailsHtml, ItineraryPreview } from "./itineraryPreview.js"
-import { render } from "./main.js"
-import { setEateryButton } from "./dataAccess.js"
 import { savedItineraries } from "./savedItineraries.js"
 
 export const HolidayRoad = () => {
