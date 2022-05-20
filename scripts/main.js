@@ -31,13 +31,11 @@ export const render = () => {
             )
     }
 
-/*     if (typeof state.parkId !== 'undefined' && typeof state.eateryId !== 'undefined' && typeof state.saveButton === true) {
+    if (state.saveButton === true) {
         fetchGeocoding()
-        .then(() =>  {
             mainContainer.innerHTML = HolidayRoad()
-        }
-        )
-    } */
+
+    } 
 
 }
 

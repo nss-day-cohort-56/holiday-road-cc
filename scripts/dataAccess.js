@@ -58,21 +58,28 @@ export const fetchGeocoding = () => {
         return park.id === state.parkId
     })
 
-    let geoValues = ["Nashville", foundBizarre.city, foundEatery.city, foundPark.addresses.city]
-    
-    for (let i = 0; i < geoValues.length; i++) {
+    console.log(foundBizarre.city)
+    console.log(foundEatery.city)
+    console.log(foundPark.addresses[0].city)
 
-        let API = `https://graphhopper.com/api/1/geocode?q=${geoValues[i]}&debug=true&key=${keys.graphhopperKey}`
+   let geoCities = ["Nashville", foundBizarre.city, foundEatery.city, foundPark.addresses[0].city]
+   let geoStates = ["TN", foundBizarre.state, foundEatery.state, foundPark.addresses[0].stateCode]
+    
+    for (let i = 0; i < geoCities.length; i++) {
+
+        let API = `https://graphhopper.com/api/1/geocode?q=${geoCities[i]},${geoStates[i]}&limit=1&debug=true&key=${keys.graphhopperKey}`
         
-        return fetch(`${API}`) //default method is GET = i want data, give it to me please, give all of the requests
+        fetch(`${API}`) //default method is GET = i want data, give it to me please, give all of the requests
         .then(response => response.json()) //returns array of objects in this scenario
         .then(
             (latAndLong) => { //array of objects is the argument here
                 // Store the external state in application state
-                applicationState.latAndLong = latAndLong //put in transient state
+                applicationState.latAndLong.push(latAndLong.hits[0].point)//put in transient state
+                console.log(applicationState.latAndLong)
             }
             )
-        }
+        } 
+   
 }
 
 export const fetchMap = () => {
@@ -203,7 +210,7 @@ export const saveItinerary = (itinerary) => {
             applicationState = {
                 weather: [],
                 parks: [],
-                map: [],
+                latAndLong: [],
                 bizarres: [],
                 eateries: [],
                 state: {}
@@ -221,4 +228,3 @@ export const fetchItineraries = () => {
             }
         )
 }
-

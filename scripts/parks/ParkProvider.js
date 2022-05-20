@@ -30,7 +30,7 @@ document.addEventListener(
                 setParkName(foundPark.fullName)
                 setParkLatitude(parseInt(foundPark.latitude))
                 setParkLongitude(parseInt(foundPark.longitude))
-                setParkId(parseInt(parkId))
+                setParkId(parkId)
 
                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         }

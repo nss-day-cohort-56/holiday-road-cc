@@ -1,4 +1,4 @@
-import { getBizarres, setSelectedBizarre } from "../dataAccess.js";
+import { getBizarres, setBizarreId, setSelectedBizarre } from "../dataAccess.js";
 
 export const BizarresDropdown = () => {
     let bizarres = getBizarres()
@@ -25,6 +25,7 @@ document.addEventListener(
                 return bizarre.id === parseInt(bizarreId)
             })
             setSelectedBizarre(foundBizarre.name)
+            setBizarreId(parseInt(bizarreId))
         }
     }
 )

@@ -60,8 +60,6 @@ export const ItineraryPreview = () => {
         html += `<button class="button" id="saveItinerary">Save Itinerary</button>`
     }
 
-    let latAndLong = getLatAndLong()
-    console.log(latAndLong)
     return html
 }
 
@@ -117,6 +115,8 @@ mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveItinerary") {
         setSaveButton(button)
         
+        let latAndLong = getLatAndLong()
+        console.log(latAndLong)
         const dataToSendToAPI = {
             park: selectedPark,
             bizarre: selectedBizarre,
