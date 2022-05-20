@@ -3,7 +3,6 @@ import { getItineraries } from "./dataAccess.js"
 
 export const savedItineraries = () => {
     let itineraries = getItineraries()
-    console.log(itineraries)
     let html = '<h3>Saved Itineraries</h3>'
     let number = 1
     itineraries.map(itinerary => {

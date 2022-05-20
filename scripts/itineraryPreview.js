@@ -1,4 +1,4 @@
-import { getEateries, getState, getWeather, getBizarres, saveItinerary } from "./dataAccess.js"
+import { getEateries, getState, getWeather, getBizarres, saveItinerary, getLatAndLong, setSaveButton } from "./dataAccess.js"
 
 
 export const ItineraryPreview = () => {
@@ -59,6 +59,7 @@ export const ItineraryPreview = () => {
     if (typeof state.parkName !== 'undefined' && typeof state.selectedBizarre !== 'undefined' && typeof state.selectedEatery !== 'undefined') {
         html += `<button class="button" id="saveItinerary">Save Itinerary</button>`
     }
+
     return html
 }
 
@@ -109,8 +110,13 @@ mainContainer.addEventListener("click", clickEvent => {
     let selectedBizarre = state.selectedBizarre
     let selectedEatery = state.selectedEatery
     let selectedPark = state.parkName
-    if (clickEvent.target.id === "saveItinerary") {
+    let button = true
 
+    if (clickEvent.target.id === "saveItinerary") {
+        setSaveButton(button)
+        
+        let latAndLong = getLatAndLong()
+        console.log(latAndLong)
         const dataToSendToAPI = {
             park: selectedPark,
             bizarre: selectedBizarre,

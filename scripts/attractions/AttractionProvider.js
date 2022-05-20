@@ -1,4 +1,4 @@
-import { getBizarres, setSelectedBizarre } from "../dataAccess.js";
+import { getBizarres, setBizarreId, setSelectedBizarre } from "../dataAccess.js";
 
 export const BizarresDropdown = () => {
     let bizarres = getBizarres()
@@ -7,7 +7,7 @@ export const BizarresDropdown = () => {
     
     let bizarreList = bizarres.map(bizarre => {
 
-        html += `<option value="id--${bizarre.name}">${bizarre.name}</option>`
+        html += `<option value="id--${bizarre.id}">${bizarre.name}</option>`
         
     })
     html += bizarreList.join('')
@@ -19,8 +19,13 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "bizarres") {
-            const [, bizarreName] = event.target.value.split("--")
-            setSelectedBizarre(bizarreName)
+            let bizarres = getBizarres()
+            const [, bizarreId] = event.target.value.split("--")
+            const foundBizarre = bizarres.find(bizarre => {
+                return bizarre.id === parseInt(bizarreId)
+            })
+            setSelectedBizarre(foundBizarre.name)
+            setBizarreId(parseInt(bizarreId))
         }
     }
 )

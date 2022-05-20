@@ -1,5 +1,7 @@
 import { getEateries, setEateryId, setSelectedEatery } from "../dataAccess.js"
 
+const mainContainer = document.querySelector(".container")
+
 export const EateryDropdown = () => {
     let eateries = getEateries()
     let html = `<select name="eateries">
@@ -27,6 +29,8 @@ document.addEventListener(
             })
             setSelectedEatery(foundEatery.businessName)
             setEateryId(parseInt(eateryId))
+
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         }
     }
 )

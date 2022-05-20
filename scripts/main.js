@@ -1,4 +1,4 @@
-import { fetchBizarres, fetchEateries, fetchItineraries, fetchParks, fetchWeather, getState } from "./dataAccess.js"
+import { fetchBizarres, fetchEateries, fetchGeocoding, fetchItineraries, fetchParks, fetchWeather, getState } from "./dataAccess.js"
 import { HolidayRoad } from "./HolidayRoad.js"
 
 const mainContainer = document.querySelector(".container")
@@ -25,11 +25,17 @@ export const render = () => {
 
     if (typeof state.parkLatitude !== "undefined" && typeof state.parkLongitude !== "undefined") {
         fetchWeather()
-            .then(() => {
+            .then(() =>  {
                 mainContainer.innerHTML = HolidayRoad()
             }
             )
     }
+
+    if (state.saveButton === true) {
+        fetchGeocoding()
+            mainContainer.innerHTML = HolidayRoad()
+
+    } 
 
 }
 
