@@ -59,6 +59,30 @@
       "bizarre": "Snake World",
       "eatery": "Marge's Pancake House",
       "id": 11
+    },
+    {
+      "park": "American Memorial Park",
+      "bizarre": "Owney the Stuffed Dog Postal Mascot",
+      "eatery": "Joe's Stone Crab",
+      "id": 12
+    },
+    {
+      "park": "Acadia National Park",
+      "bizarre": "Giant Tattoo Needle",
+      "eatery": "Marge's Pancake House",
+      "id": 13
+    },
+    {
+      "park": "Acadia National Park",
+      "bizarre": "Cabazon Dinosaurs",
+      "eatery": "Big Bob Gibson Bar-B-Que",
+      "id": 14
+    },
+    {
+      "park": "Ala Kahakai National Historic Trail",
+      "bizarre": "Giant Tattoo Needle",
+      "eatery": "Big Bob Gibson Bar-B-Que",
+      "id": 15
     }
   ]
 }
