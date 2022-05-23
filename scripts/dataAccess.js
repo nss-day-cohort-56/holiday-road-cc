@@ -5,6 +5,7 @@ let applicationState = {
     weather: [],
     parks: [],
     latAndLong: [],
+    route: [],
     bizarres: [],
     eateries: [],
     itineraries: [],
@@ -12,6 +13,21 @@ let applicationState = {
 }
 
 const API = "http://localhost:8088"
+
+export const fetchRouting = () => {
+    console.log(`fetchrouting`)
+    let latandlong = getLatAndLong()
+    let API = `https://graphhopper.com/api/1/route?point=${latandlong[0].lat},${latandlong[0].lng}&point=${latandlong[1].lat},${latandlong[1].lng}&point=${latandlong[2].lat},${latandlong[2].lng}&point=${latandlong[3].lat},${latandlong[3].lng}&profile=car&locale=en&instructions=true&key=${keys.graphhopperKey}`
+
+    return fetch(`${API}`) //default method is GET = i want data, give it to me please, give all of the requests
+        .then(response => response.json()) //returns array of objects in this scenario
+        .then(
+            (route) => { //array of objects is the argument here
+                // Store the external state in application state
+                applicationState.route = route.instructions //put in transient state
+            }
+        )
+}
 
 export const fetchWeather = () => {
     let state = getState()
@@ -62,24 +78,29 @@ export const fetchGeocoding = () => {
     console.log(foundEatery.city)
     console.log(foundPark.addresses[0].city)
 
-   let geoCities = ["Nashville", foundBizarre.city, foundEatery.city, foundPark.addresses[0].city]
-   let geoStates = ["TN", foundBizarre.state, foundEatery.state, foundPark.addresses[0].stateCode]
-    
+    let geoCities = ["Nashville", foundBizarre.city, foundEatery.city, foundPark.addresses[0].city]
+    let geoStates = ["TN", foundBizarre.state, foundEatery.state, foundPark.addresses[0].stateCode]
+    let allLatLongFetches = []
+
     for (let i = 0; i < geoCities.length; i++) {
 
         let API = `https://graphhopper.com/api/1/geocode?q=${geoCities[i]},${geoStates[i]}&limit=1&debug=true&key=${keys.graphhopperKey}`
-        
-        fetch(`${API}`) //default method is GET = i want data, give it to me please, give all of the requests
-        .then(response => response.json()) //returns array of objects in this scenario
-        .then(
-            (latAndLong) => { //array of objects is the argument here
-                // Store the external state in application state
-                applicationState.latAndLong.push(latAndLong.hits[0].point)//put in transient state
-                console.log(applicationState.latAndLong)
-            }
+
+        allLatLongFetches.push(fetch(`${API}`) //default method is GET = i want data, give it to me please, give all of the requests
+            .then(response => response.json()) //returns array of objects in this scenario
+            // .then(
+            //     (latAndLong) => { //array of objects is the argument here
+            //         // Store the external state in application state
+            //         applicationState.latAndLong.push(latAndLong.hits[0].point)//put in transient state
+
+            //     }
+            // )
             )
-        } 
-   
+    }
+    return Promise.all(allLatLongFetches).then((responses) => {
+        console.log(responses) // []
+        
+    })
 }
 
 export const fetchMap = () => {
@@ -103,6 +124,10 @@ export const getBizarres = () => {
     return applicationState.bizarres.map(bizarre => ({ ...bizarre }))
 }
 
+export const getRoute = () => {
+    return applicationState.route.map(route => ({ ...route }))
+}
+
 export const getState = () => {
     return { ...applicationState.state }
 }
@@ -121,22 +146,22 @@ export const getLatAndLong = () => {
 
 export const setParkName = (name) => {
     applicationState.state.parkName = name
-    
+
 }
 
 export const setParkId = (id) => {
     applicationState.state.parkId = id
-    
+
 }
 
 export const setParkLatitude = (number) => {
     applicationState.state.parkLatitude = number
-    
+
 }
 
 export const setParkLongitude = (number) => {
     applicationState.state.parkLongitude = number
-    
+
 }
 
 export const fetchBizarres = () => {
@@ -211,6 +236,7 @@ export const saveItinerary = (itinerary) => {
                 weather: [],
                 parks: [],
                 latAndLong: [],
+                route: [],
                 bizarres: [],
                 eateries: [],
                 state: {}

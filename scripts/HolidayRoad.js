@@ -3,6 +3,7 @@ import { ParksDropdown } from "./parks/ParkProvider.js"
 import { EateryDropdown } from "./eateries/EateryProvider.js"
 import { eateryDetailsHtml, ItineraryPreview } from "./itineraryPreview.js"
 import { savedItineraries } from "./savedItineraries.js"
+import { Directions } from "./directions/DirectionProvider.js"
 
 export const HolidayRoad = () => {
     return `<h1 class="header">Holiday Road</h1>
@@ -29,7 +30,8 @@ export const HolidayRoad = () => {
                 <div class="rightrightside">
                 ${savedItineraries()}
                 </div>
-                </div>`
+                </div>
+                ${Directions()}`
 }
 
 const mainContainer = document.querySelector(".container")
