@@ -29,6 +29,24 @@
       "bizarre": "Big White Shirt",
       "eatery": "Louis' Lunch",
       "id": 6
+    },
+    {
+      "park": "Acadia National Park",
+      "bizarre": "World’s Largest Egg",
+      "eatery": "Big Bob Gibson Bar-B-Que",
+      "id": 7
+    },
+    {
+      "park": "Agate Fossil Beds National Monument",
+      "bizarre": "Teacher’s Hall of Fame",
+      "eatery": "The Old Clam House",
+      "id": 8
+    },
+    {
+      "park": "African American Civil War Memorial",
+      "bizarre": "World’s Largest ‘Gone With the Wind’ Collection",
+      "eatery": "El Charro Cafe",
+      "id": 9
     }
   ]
 }

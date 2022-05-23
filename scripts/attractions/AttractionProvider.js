@@ -6,9 +6,9 @@ export const BizarresDropdown = () => {
     <option value="0">Choose one...</option>`
     
     let bizarreList = bizarres.map(bizarre => {
-
+        if(bizarre.state !== "AK" && bizarre.state !== "HI") {
         html += `<option value="id--${bizarre.id}">${bizarre.name}</option>`
-        
+        }  
     })
     html += bizarreList.join('')
     html += `</select><br>`
