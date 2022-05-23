@@ -1,6 +1,5 @@
 import { getItineraries } from "./dataAccess.js"
 
-
 export const savedItineraries = () => {
     let itineraries = getItineraries()
     let html = '<h3>Saved Itineraries</h3>'

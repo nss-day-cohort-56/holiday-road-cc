@@ -8,9 +8,9 @@ export const ParksDropdown = () => {
     <option value="0">Choose a Park</option>`
     
     let parkList = parks.map(park => {
-
+        if(park.addresses[0].stateCode !== "AK" && park.addresses[0].stateCode !== "HI") {
         html += `<option value="id--${park.id}">${park.fullName}</option>`
-        
+        }
     })
     html += parkList.join('')
     html += `</select><br>`

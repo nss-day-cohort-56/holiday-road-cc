@@ -8,8 +8,10 @@ export const EateryDropdown = () => {
     <option value="0">Choose an Eatery</option>`
 
     let eateryList = eateries.map(eatery => {
-
-        html += `<option value="id--${eatery.id}">${eatery.businessName}</option>`
+        if(eatery.state !== "AK" && eatery.state !== "HI") {
+            html += `<option value="id--${eatery.id}">${eatery.businessName}</option>`
+        }
+        
 
     })
     html += eateryList.join('')
