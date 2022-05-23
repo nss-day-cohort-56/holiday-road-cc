@@ -1,13 +1,17 @@
-import { getState } from "../dataAccess.js"
+import { getRoute, getState } from "../dataAccess.js"
 
 
 export const Directions = () => {
     let state = getState()
-    let route = state.route
+    let routes = getRoute()
     let html = ``
-    if (typeof route !== "undefined") {
-        html += `${route}`
-        console.log(route)
+    if (typeof routes !== "undefined") {
+        console.log(routes)
+        routes.map(route => {
+            route.instructions.map(instruction => {    
+                html += `${instruction.text} for ${Math.round(((instruction.distance) * 0.000621371) * 10) / 10} miles. <br>`
+            })
+        })
     }
     return html
 }

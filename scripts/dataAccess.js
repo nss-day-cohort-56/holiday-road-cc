@@ -5,7 +5,7 @@ let applicationState = {
     weather: [],
     parks: [],
     latAndLong: [],
-    route: [],
+    routes: [],
     bizarres: [],
     eateries: [],
     itineraries: [],
@@ -24,7 +24,7 @@ export const fetchRouting = () => {
         .then(
             (route) => { //array of objects is the argument here
                 // Store the external state in application state
-                applicationState.route = route.instructions //put in transient state
+                applicationState.routes = route.paths //put in transient state
             }
         )
 }
@@ -128,7 +128,7 @@ export const getBizarres = () => {
 }
 
 export const getRoute = () => {
-    return applicationState.route.map(route => ({ ...route }))
+    return applicationState.routes.map(route => ({ ...route }))
 }
 
 export const getState = () => {
@@ -239,7 +239,7 @@ export const saveItinerary = (itinerary) => {
                 weather: [],
                 parks: [],
                 latAndLong: [],
-                route: [],
+                routes: [],
                 bizarres: [],
                 eateries: [],
                 state: {}

@@ -1,4 +1,5 @@
 import { getEateries, getState, getWeather, getBizarres, saveItinerary, getLatAndLong, setSaveButton } from "./dataAccess.js"
+import { Directions } from "./directions/DirectionProvider.js"
 
 
 export const ItineraryPreview = () => {
@@ -124,5 +125,7 @@ mainContainer.addEventListener("click", clickEvent => {
         }
 
         saveItinerary(dataToSendToAPI)
+
+        Directions()
     }
 })

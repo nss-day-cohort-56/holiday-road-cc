@@ -13,76 +13,22 @@
       "id": 3
     },
     {
-      "park": "African Burial Ground National Monument",
-      "bizarre": "Snake World",
-      "eatery": "Joe's Stone Crab",
+      "park": "African American Civil War Memorial",
+      "bizarre": "Elvis Memorial Chapel",
+      "eatery": "El Charro Cafe",
       "id": 4
     },
     {
       "park": "Adams National Historical Park",
-      "bizarre": "Owney the Stuffed Dog Postal Mascot",
-      "eatery": "Joe's Stone Crab",
+      "bizarre": "Giant Tattoo Needle",
+      "eatery": "El Charro Cafe",
       "id": 5
     },
     {
-      "park": "Abraham Lincoln Birthplace National Historical Park",
-      "bizarre": "Snake World",
-      "eatery": "H&H Soul Food",
-      "id": 6
-    },
-    {
       "park": "Alcatraz Island",
-      "bizarre": "Giant Abraham Lincoln",
-      "eatery": "The Old Clam House",
-      "id": 7
-    },
-    {
-      "park": "African American Civil War Memorial",
-      "bizarre": "Snake World",
-      "eatery": "El Charro Cafe",
-      "id": 8
-    },
-    {
-      "park": "African American Civil War Memorial",
-      "bizarre": "Cabazon Dinosaurs",
-      "eatery": "Buckhorn Exchange",
-      "id": 9
-    },
-    {
-      "park": "Ala Kahakai National Historic Trail",
-      "bizarre": "Fountain of Youth",
-      "eatery": "Buckhorn Exchange",
-      "id": 10
-    },
-    {
-      "park": "African Burial Ground National Monument",
-      "bizarre": "Snake World",
-      "eatery": "Marge's Pancake House",
-      "id": 11
-    },
-    {
-      "park": "American Memorial Park",
-      "bizarre": "Owney the Stuffed Dog Postal Mascot",
-      "eatery": "Joe's Stone Crab",
-      "id": 12
-    },
-    {
-      "park": "Acadia National Park",
-      "bizarre": "Giant Tattoo Needle",
-      "eatery": "Marge's Pancake House",
-      "id": 13
-    },
-    {
-      "park": "Acadia National Park",
-      "bizarre": "Cabazon Dinosaurs",
-      "eatery": "Big Bob Gibson Bar-B-Que",
-      "id": 14
-    },
-    {
-      "park": "Ala Kahakai National Historic Trail",
-      "bizarre": "Giant Tattoo Needle",
-      "eatery": "Big Bob Gibson Bar-B-Que",
-      "id": 15
+      "bizarre": "Big White Shirt",
+      "eatery": "Louis' Lunch",
+      "id": 6
     }
   ]
 }
